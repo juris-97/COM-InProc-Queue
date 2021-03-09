@@ -16,7 +16,7 @@ Queue::Queue(int size) {
 	rear = -1;
 	count = 0;
 
-	printf("Licznik referencji: %d\n", UCQueue);
+	printf("Ref counter: %d\n", UCQueue);
 }
 
 Queue::~Queue() {
@@ -27,11 +27,11 @@ Queue::~Queue() {
 HRESULT Queue::dequeue() {
 
 	if (isEmpty()) {
-		printf("Brak elementow w kolejce\n");
+		printf("No elements in Queue\n");
 		return E_FAIL;
 	}
 
-	printf("Usuniety element %d\n", arr[front]);
+	printf("Deleted element: %d\n", arr[front]);
 	front = (front + 1) % capacity;
 	count--;
 
@@ -41,11 +41,11 @@ HRESULT Queue::dequeue() {
 HRESULT Queue::enqueue(int item) {
 
 	if (isFull()) {
-		printf("Za du¿o elementow w kolejce\n");
+		printf("To many elements in Queue\n");
 		return E_FAIL;
 	}
 
-	printf("Wstawiony element %d\n", item);
+	printf("Inserted elemen:  %d\n", item);
 
 	rear = (rear + 1) % capacity;
 	arr[rear] = item;
@@ -57,7 +57,7 @@ HRESULT Queue::peek(int* res)
 {
 	if (isEmpty())
 	{
-		printf("Brak elementow w kolejce\n");
+		printf("No elements in Queue\n");
 		return E_FAIL;
 	}
 	*res = arr[front];
