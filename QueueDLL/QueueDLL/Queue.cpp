@@ -45,7 +45,7 @@ HRESULT Queue::enqueue(int item) {
 		return E_FAIL;
 	}
 
-	printf("Inserted elemen:  %d\n", item);
+	printf("Inserted element:  %d\n", item);
 
 	rear = (rear + 1) % capacity;
 	arr[rear] = item;
