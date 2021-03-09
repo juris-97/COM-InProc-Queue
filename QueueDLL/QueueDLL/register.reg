@@ -1,0 +1,7 @@
+REGEDIT4
+
+[HKEY_CURRENT_USER\Software\Classes\WOW6432Node\CLSID\{D3FB9EA7-7627-4461-9FD6-A156E9D578D4}]
+@="QueueDLL"
+[HKEY_CURRENT_USER\Software\Classes\WOW6432Node\CLSID\{D3FB9EA7-7627-4461-9FD6-A156E9D578D4}\InProcServer32]
+@="C:\\Users\\Lemon\\Desktop\\KSR\\git\\Queue_In-Proc\\QueueDLL\\Debug\\QueueDLL.dll"
+"ThreadingModel"="Both"
