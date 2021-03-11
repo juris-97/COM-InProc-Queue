@@ -3,14 +3,27 @@ Implementing Queue Structure as Component Object Model (Inproc-Server) in C++
 
 ## Table of contents
 * [General info](#general-info)
+* [Work principle](#work-principle)
 * [Setup](#setup)
 
 ## General info
 This is an example of COM (Component Object Model) in C++. </br>
 The Queue Structure is implemented as Inproces-Server. </br>
 The client can use all implemented functions, knowing the only GUID of the Queue class object. </br>
-As well Queue interface header file should be included.
-	
+As well Queue interface header file should be included. </br>
+
+## Work principle
+![alt text](img/Principle.png "Work Principle") </br>
+1. CoCreateInstance call searches the registry for class registration information about the CLSID.
+2. CoCreateInstance fetches the path to the DLL file with the class implementation.
+3. CoCreateInstance loads the DLL and looks for the DllGetClassObject function in it and calls it.
+4. DllGetClassObject creates a Factory object.
+5. DllGetClassObject returns a pointer to the IClassFactory interface of the factory to CoCreateInstance
+6. CoCreateInstance calls the CreateInstance method from the IClassFactory interface.
+7. CoCreateInstance creates object - Queue.
+8. CreateInstance takes a pointer to the IQueue interface from the Queue object and returns it to CoCreateInstance
+9. CoCreateInstance returns the pointer to IQueue. The client uses the Queue object through the IQueue interface.
+
 ## Setup
 To run this project you should: 
 1. Open Visual Studio and create the Dynamic-Link Library project (You can choose - "Windows Desktop Wizard" and select dll type of project)</br>
